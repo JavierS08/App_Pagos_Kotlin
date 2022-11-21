@@ -20,14 +20,15 @@ class Edit : AppCompatActivity() {
         val precio=findViewById<EditText>(R.id.et_prec1)
 
         btn_act.setOnClickListener() {
-            val idc = id.text.toString().toInt()
-            val nom = nombre.text.toString()
-            val cont = contexto.text.toString()
-            val precioc = precio.text.toString().toInt()
+
             if (id.text.isEmpty() or nombre.text.isEmpty() or contexto.text.isEmpty() or precio.text.isEmpty()) {
                 Toast.makeText(this, "Algunos campos quedaron incompletos, rellenelos", Toast.LENGTH_LONG).show()
             }
             else{
+                val idc = id.text.toString().toInt()
+                val nom = nombre.text.toString()
+                val cont = contexto.text.toString()
+                val precioc = precio.text.toString().toInt()
                 db.edit(idc, nom, cont, precioc)
                 Toast.makeText(this, "Producto Editado con exito", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, MainActivity::class.java)
